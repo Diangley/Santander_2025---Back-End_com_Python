@@ -6,7 +6,8 @@ def menu():
     print("[4] Novo Usuário")
     print("[5] Nova Conta")
     print("[6] Listar Usuários")
-    print("[7] Sair")
+    print("[7] Listar Contas")
+    print("[8] Sair")
 
 
 def formatar_valor(valor):
@@ -88,6 +89,15 @@ def listar_usuarios(usuarios):
             print(f"Nome: {usuario['nome']}, CPF: {usuario['cpf']}, Nascimento: {usuario['data_nascimento']}, Endereço: {usuario['endereco']}")
 
 
+def listar_contas(contas):
+    print("\n=== Lista de Contas ===")
+    if not contas:
+        print("Nenhuma conta cadastrada.")
+    else:
+        for conta in contas:
+            print(f"Agência: {conta['agencia']}, Número: {conta['numero']}, Titular: {conta['usuario']['nome']}, CPF: {conta['usuario']['cpf']}")
+
+
 def main():
     saldo = 0.0
     extrato = []
@@ -129,6 +139,9 @@ def main():
             listar_usuarios(usuarios)
 
         elif opcao == '7':
+            listar_contas(contas)
+
+        elif opcao == '8':
             print("Obrigado por usar nosso sistema bancário. Até mais!")
             break
 
